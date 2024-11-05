@@ -17,7 +17,7 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    // Add any other fields you want
+    
 });
 
 const Product = mongoose.model('Product', productSchema);

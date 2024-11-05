@@ -3,24 +3,24 @@ const mongoose = require('mongoose');
 const cartItemSchema = new mongoose.Schema({
     productId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Product', // Reference to the Product model
+        ref: 'Product', // Referencing to the Product model
         required: true
     },
     quantity: {
         type: Number,
         required: true,
-        min: 1 // Ensure quantity is at least 1
+        min: 1 // Ensuring quantity is at least 1
     }
-}, { timestamps: true }); // Optional, adds createdAt and updatedAt fields
+}, { timestamps: true }); 
 
 const cartSchema = new mongoose.Schema({
     items: [cartItemSchema], // Array of cart items
     userId: {
-        type: mongoose.Schema.Types.ObjectId, // Change to ObjectId if using a User model
-        ref: 'User', // Reference to the User model (if applicable)
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'User', // Reference to the User model
         required: true
     }
-}, { timestamps: true }); // Optional
+}, { timestamps: true }); 
 
 // Create and export the Cart model
 const Cart = mongoose.model('Cart', cartSchema);
