@@ -6,9 +6,12 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const authRoutes = require('./routes/authRoutes');
 
 // Initialize the app
 const app = express();
+app.use(express.json());
+app.use('/api', authRoutes);
 
 // Import routers
 const indexRouter = require('./routes/index');
